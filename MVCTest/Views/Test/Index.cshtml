@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+@model MVCTest.Models.Item
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"  /> 
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        scascasjckasc
+        <h3>@ViewBag.test</h3>
+        @foreach (var item in Model.list)
+        {
+        <div>
+            @item.Id    @item.Ten    @item.Img 
+            
+        </div> <br>
+        }
+    </div>
+</body>
+</html>
