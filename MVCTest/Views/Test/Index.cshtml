@@ -1,7 +1,5 @@
 ﻿
-@{
-    Layout = null;
-}
+
 @model MVCTest.Models.Item
 <!DOCTYPE html>
 
@@ -13,14 +11,24 @@
 <body>
     <div>
         scascasjckasc
-        <h3>@ViewBag.test</h3>
+        <h3>@ViewBag.abc</h3>
+
+
+
         @foreach (var item in Model.list)
         {
-        <div>
-            @item.Id    @item.Ten    @item.Img 
-            
+        <div >
+            @item.Id        @item.Ten    @item.Img
+
         </div> <br>
         }
+
+
+    </div>
+
+
+    <div >
+
     </div>
 </body>
 </html>

@@ -15,6 +15,7 @@ namespace MVCTest.Models
         public string Img { get => img; set => img = value; }
         public string Ten { get => ten; set => ten = value; }
         public List<Item> list;
+
         public void getData()
         {
             list = DAL.DALItem.getSp();

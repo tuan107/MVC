@@ -11,9 +11,12 @@ namespace MVCTest.DAL
     {
         public static List<Models.Item> getSp()
         {
-            if (con != null && con.State == ConnectionState.Closed) con.Open();
+            if (con != null && con.State == ConnectionState.Closed) con.Open();// mở kết nối
             List<Models.Item> l = new List<Models.Item>();
             SqlCommand cmd = new SqlCommand("Select * from sanPham",con);
+
+            
+
             SqlDataReader rd = cmd.ExecuteReader();
             
             while (rd.Read() && rd!=null)
@@ -28,6 +31,22 @@ namespace MVCTest.DAL
             rd.Dispose(); // <- too easy to forget
             con.Close();
             return l;
+        }
+
+        public static void insert(Models.Item it)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("insert into sanPham(img,ten) values('"+it.Img+"','"+it.Ten+"')", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public static void update(Models.Item it)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("update sanPham set img = '" + it.Img + "' , ten = '" + it.Ten + "' where id = '" + it.Id + "' ", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

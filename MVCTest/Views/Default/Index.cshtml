@@ -1,0 +1,54 @@
+﻿@model PagedList.IPagedList<MVCTest.Models.Item>
+@using PagedList.Mvc;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Img)*@
+                <h3>Hình ảnh</h3>
+
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Ten)*@
+                <h3>Tên sản phẩm</h3>
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img class="img" style="width:100px;height:100px" src="~/img/@item.Img" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ten)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</body>
+</html>

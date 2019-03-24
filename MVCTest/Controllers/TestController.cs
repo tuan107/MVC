@@ -11,7 +11,7 @@ namespace MVCTest.Controllers
         // GET: Test
         public ActionResult Index()
         {
-            ViewBag.test = "Đây là từ controascas ";
+            ViewBag.abc = "kcskcskdc";
             Models.Item item = new Models.Item();
             item.getData();
             return View(item);
